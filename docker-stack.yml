@@ -1,0 +1,28 @@
+version: "3.6"
+services:
+  app:
+    image: voyagerwoo/hello-world:${IMG_TAG:-v1}
+    ports:
+      - "8080:8080"
+    deploy:
+      mode: replicated
+      replicas: ${REPLICAS:-2}
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
+      resources:
+        limits:
+          cpus: '1'
+          memory: 700M
+        reservations:
+          cpus: '0.5'
+          memory: 500M
+    environment:
+      - PROFILE=${PROFILE}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 20s

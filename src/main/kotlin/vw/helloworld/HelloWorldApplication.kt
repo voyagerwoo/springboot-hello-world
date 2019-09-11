@@ -30,5 +30,11 @@ class HelloController {
 		throw error
 		return "hello $name"
 	}
+	
+	@GetMapping(value = "/hi")
+	fun hi(@RequestParam(defaultValue = "world") name: String): String {
+		log.info("hi $name")
+		return "hi $name"
+	}
 }
 
