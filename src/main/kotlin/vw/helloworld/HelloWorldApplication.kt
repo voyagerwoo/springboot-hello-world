@@ -17,17 +17,19 @@ fun main(args: Array<String>) {
 class HelloController {
 	private val log = LoggerFactory.getLogger("HelloController")
 
-	@GetMapping(value = "/hello")
+	@GetMapping(value = ["/hello"])
 	fun hello(@RequestParam(defaultValue = "world") name: String): String {
 		log.info("hello $name")
 		return "hello $name"
 	}
 
-	@GetMapping(value = "/hello-error")
+	@GetMapping(value = ["/hello-error"])
 	fun helloError(@RequestParam(defaultValue = "world") name: String): String {
 		val error = IllegalStateException("hello $name")
-		log.error("hello $name", error)
-		throw error
+		if (name.isNotBlank()) {
+			log.error("hello $name", error)
+			throw error
+		}
 		return "hello $name"
 	}
 }
