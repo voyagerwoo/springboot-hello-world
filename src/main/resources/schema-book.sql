@@ -6,4 +6,4 @@ create table if not exists book (
     published_date timestamp,
     publisher varchar(255),
     primary key (id)
-)
+);

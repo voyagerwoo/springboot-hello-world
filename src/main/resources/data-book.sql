@@ -1,1 +1,1 @@
-into book (id, author, isbn, name, published_date, publisher) values (null, '홍길동', '919-11-1241-123-5', '홍길동전', '2019-11-25 0사5:33:33', '민음')
+insert into book (id, author, isbn, name, published_date, publisher) values (null, 'Joel', '919-11-1241-123-5', 'Joel Recipe', '2019-11-25 05:33:33', 'Wikibooks');
