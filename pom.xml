@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <kotlin.version>1.3.60</kotlin.version>
-        <mariadb-java-client.version>2.4.3</mariadb-java-client.version>
+        <mariadb-java-client.version>2.7.14</mariadb-java-client.version>
         <jar.unpack.app.dir>${project.build.directory}/unpack-app</jar.unpack.app.dir>
         <jar.unpack.lib.dir>${project.build.directory}/unpack-lib</jar.unpack.lib.dir>
     </properties>
